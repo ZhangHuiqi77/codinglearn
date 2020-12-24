@@ -2,10 +2,12 @@ git config --global user.name "Your Name"
 git config --global user.email "your@email.com"
 git init
 git status
-touch index.html 
-git add .
-git add git_basic.txt
-git commit -m"add git basic operator"
+touch index.html 	% creat index.html file
+git add .		% tell git to add all
+git add git_basic.txt	% tell git to add git_basic.txt file
+rm deleteme.txt % delete the file in the local folder
+git rm deleteme.txt 	% tell git to rm the file
+git commit -m"add git basic operator"	
 git log
 git checkout 655198466516540656165
 git checkout master
@@ -15,3 +17,7 @@ git branch
 git checkout master
 git merge crazycolor
 git status
+
+git remote add origin https://github.com/ZhangHuiqi77/codinglearn.git
+git push -u origin master
+git push -f origin master
