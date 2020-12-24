@@ -1,0 +1,35 @@
+https://blog.csdn.net/zhouyingge1104/article/details/42393955
+https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013743256916071d599b3aed534aaab22a0db6c4e07fd0000
+
+创建库	mkdir learngit
+到某个路径	cd D:
+返回上一层路径	cd ..
+显示当前目录	pwd
+把这个目录变成Git管理的仓库		git init
+删除文件夹	rmdir learngit
+删除文件	rm readme.txt
+创建文件	touch readme.txt
+添加到仓库	git add readme.txt
+确认提交并添加描述	git commit -m"add readme.txt"
+查看状态 git status
+对比缓存区改动的地方	git diff readme.txt
+查看版本的历史记录	git log
+历史记录查看的单行显示	git log --pretty=oneline
+当前版本 Head
+上一个版本	Head^
+上上个版本	head^^
+上100个版本	HEAD~100
+版本退回	git reset --hard Head^
+再回到将来的某个版本	git reset --hard 版本号
+回顾每次的命令查找以前的版本号	git reflog
+比较工作区和版本库里的区别	git diff HEAD -- readme.txt
+撤销修改，包括工作区的和暂存区的	git checkout -- readme.txt
+删除文件	rm test.txt
+在版本库中删除	git rm test.txt		git commit -m"remove test.txt"
+恢复误删的文件	git checkout test.txt	#checkout就是用版本库里的文件替换工作区里的文件
+关联远程库 git remote add origin https://github.com/cade8800/ionic-demo.git
+远程库与本地库同步合并 git pull --rebase origin master
+将本地库的内容推向远程库，其实是刚才commit在master分支中的内容提交  git push -u origin master
+git push -f origin master
+
+

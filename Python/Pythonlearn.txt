@@ -1,0 +1,173 @@
+Pythonlearn
+此处是小问题的积累
+1 如何print不换行，print默认的结尾是end="\n",改为print("要打印的内容",end="")即可
+2 怎么取字符串a的前5位，a[0:4]
+  怎么取字符串a第5位及以后的数位，a[5:]
+3 Python中的条件判断、循环以及循环的终止https://blog.csdn.net/github_39655029/article/details/81211268
+
+
+字符串操作，来自https://blog.csdn.net/yangyangblog/article/details/80545614
+#取字符串中的规定字符
+<字符名称>[a:b:c]  #a表示开始取字符的位置，b表示取到b位之前的那一位，c表示取位规则，如果不写:c则默认为+1，即从左向右顺位
+	eg: 
+		print(name[-1])     #取最后一个值
+		print(name[2:])     #从第3个字符开始到结束
+		print(name[2:-1:2]) #跳一个取一个值
+		print(name[-1::-1]) #全倒序
+		print(name[-1:0:-1]) #倒序，正数首位不取
+		print(name[::-1])   #全倒序
+
+#寻找特定字符
+print(mystr.find("world")) #显示出第一个元素出现的下标
+print(mystr.find("321321")) #如果没有该元素则显示-1
+print(mystr.find("yang"))   #显示从左向右找第一个出现yang的下标
+print(mystr.rfind("yang"))  #默认从左向右找，rfind为从右向左找
+print(mystr.index("yang"))  #index=find
+print(mystr.rindex("yang")) #rindex=rfind
+
+print(mystr.replace("world","WORLD")) #替换元素
+print(mystr.replace("yang","zhang",2)) #最后的参数是替换几个
+
+print(mystr.count("yang"))  #返回字符在字符串中出现的个数
+len(mystr)    #显示字符串的长度，这是个纯数字
+
+#切割
+print(mystr.split(" ")) #按照空格进行切割 ['hello', 'world', 'yangyang', 'and', 'yangxxxx']
+
+#字母操作
+print(mystr.capitalize())   #字符串首字母大写
+print(mystr.title())        #字符串中每个单词的首字母大写
+print(mystr.endswith("xx")) #查看字符串末尾的字符是否有xx，是则返回True
+print(mystr.startswith("hello"))    #查看字符串首字符是否含有hello，是则返回True
+print(mystr.lower())    #字符串全部改成小写
+print(mystr.upper())    #字符串全部改成大写
+
+print(mystr.center(50)) #居中对齐
+print(mystr.ljust(50))  #靠左对齐
+print(mystr.rjust((50)))    #靠右对齐
+print("----")
+
+test = mystr.center(50)
+print(test.lstrip())    #删除左边的空格或者字符
+print(test.rstrip())    #删除右边的空格或者字符
+print(test.strip())     #删除两边的空格或者字符
+
+print(mystr.partition("yang"))  #以yang为中间字符左右两边成为单独的字符串，默认是左数第一个yang
+print(mystr.rpartition("yang"))    #功能同上，yang从右边开始算起
+
+mystr.isalpha() #识别字符串中是否为字母
+mystr.isdigit() #识别字符串中是否为数字
+mystr.isalnum() #识别字符串中既有数字也有字母
+mystr.isspace() #识别字符串中是否为纯空格
+
+mystr3 = mystr2.splitlines()
+b = "-"
+print(b.join(mystr3))   #以-为连接符把字符串中的每个元组都连接起来
+
+test = "haha \t nihao a \t ni shi wo de hao \t pengyou"
+print(test.split()) #如果split()中什么都不写的话，默认切割\t 空格 \n 等
+print(test.split(" \t")) #表示只切割“空格+\t”的字符
+test1 = test.split()
+print("".join(test1))    #再组合，用“ ”连接test1中切割的字符串
+
+
+字符串相关操作
+1 提取[M:N:K],其中M N 如果不写出表示从头开始到N结束，或者是从M开始到末尾。K默认为1，表示步长
+[::-1]表示把字符串从头到尾倒序输出
+
+提取是很重要的手段，往往优于逐个比较
+2 +表示连接两个字符串，*表示把这个字符串复制几次，in用于判断某参数s是否在字符串中
+3 len(x) 返回字符串的长度
+4 str(x) 把某参数转换成字符串，把数字123转换成字符串“123”，把列表[1,2]转换成字符串“[1,2]”         与eval相对应
+5 hex(x)或oct(x) 可以把十进制数转换为对应的十六进制数或者八进制数
+6 chr(x)和ord(x) 这也是一对儿函数，chr用于表达对应unicode下的字符，ord用于获得字符对应的unicode编码
+7 str.lower()或str.upper()----返回字符串的副本，全为小写
+8 str.split(",")表示根据“,”把字符串拆分为几个，"A,B,C"split(",")结果为['A','B','C']
+9 str.count(sub)是一个计数工具，返回紫川sub在str中出现的次数
+10 str.replace(old,new)-------把str中的部分字符替换掉
+11 str.center(width,[fillchar])--------------将str放在宽度为width的中间，空的字符用fillchar填充（打印格式统一）
+12 str.strip(chars)----删掉str左右两侧的包括在chars中的字符
+13 str.join(iter)----在iter变量的除最后一位之外的每一位后面添加一个str--------主要用于字符串分隔的重要方法
+14 .format格式化输出
+
+time库
+"E:\Anaconda3\pythonlearn\TextProBarV3.py"
+
+unicode编码
+A~Z：65~90
+a~z: 97~122
+"空格"：32
+#分割split用法，参考https://www.cnblogs.com/hjhsysu/p/5700347.html
+s.split("-")[0]------分割后取序列为0的项
+last = s.split("-")[-1]------分割后取序列为1的项
+
+添加注释
+可以用#添加单行注释，用'''或者"""添加多行注释
+#这是个单行注释
+'''
+这是个多行注释
+这是个多行注释
+这是个多行注释
+'''
+"""
+这是个多行注释
+这是个多行注释
+这是个多行注释
+"""
+
+pip工具用不了的时候，例如这样的错误Script file 'E:\Anaconda3\Scripts\pip-script.py' is not present.
+需要重新装pip包
+在base环境或者cmd环境使用easy_install pip即可
+接下来正常用pip包去安装其他包，例如 pip install pyinstaller
+
+
+使用了pyinstaller这个工具之后可以生成exe文件，并不需要python环境就可以运行
+在使用该工具时，需要把待使用的icon图标文件和.py文件放在user-zhang的直接文件下，
+否则命令pyinstaller -i snowflake.ico -F KochDrawV1.py在执行的时候会提示raise ValueError("script '%s' not found" % script)
+ValueError: script 'C:\Users\zhang\KochDrawV1.py' not found
+
+创建字典时，如果相同键对应不同值，字典采用最后（最新）一个"键值对"。
+例如：
+d= {'a': 1, 'b': 2, 'b': '3'}
+print(d['b'])
+
+结果返回3
+
+组合数据类型可以分为3类：序列类型、集合类型和映射类型，其中序列类型包括字符串，元组和列表
+
+字典按键/值排序：https://www.cnblogs.com/xubing-613/p/7634911.html
+d={"ok":1,"no":2}
+#对字典按键排序，用元组列表的形式返回
+d1 = sorted(d.items(), key=lambda d:d[0],reverse = False) #[('no', 2), ('ok', 1)]
+#对字典按值排序，用元组列表的形式返回
+d2 = sorted(d.items(), key=lambda d:d[1],reverse = True) #[('ok', 1), ('no', 2)]
+print d1,'\n',d2
+　sorted(dict.items(), key=lambda e:e[0], reverse=True)
+
+里面三个参数
+
+dict.items() #可迭代元素。
+
+key= lambda d:d[0]#d[0]表示按键，d[1]表示按值。
+
+reverse#默认是False，升序排列。当值为True时是降序排列。
+
+返回的是一个列表，列表中是排列后的元组。
+
+---------------------------------------------------------------------------------------------
+Python的return语句中使用条件判断
+if end1 <= val <= end2 or end2 <= val <= end1:
+    return True
+else:
+    return False
+等于
+
+return end1 <= val <= end2 or end2 <= val <= end1
+
+Python
+
+
+学习用python的库
+绘图：matplotlib，pycairo
+基础的先学习numpy
+我学到了基础篇的第三篇文章

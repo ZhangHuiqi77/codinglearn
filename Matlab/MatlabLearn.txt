@@ -1,0 +1,62 @@
+MatlabLeaarn
+
+
+a = [ 1 2 3 4 5 ] %创建vector，可以只用空格，加，或不加没有影响
+p = [ 1 2 3 ; 4 5 6 ] %创建matrix，用；隔开
+size()
+c(1,:) %取第一行的所有列的元素
+a=1:1:10 %创建1到10的vector，间隔为1！！！奇怪吧，确实可以这么写
+find(a>10)  %find函数返回a中所有大于10的元素的index
+a(index)  %索引a中的下标为index的元素
+
+
+linspace 按照所需元素的个数产生元素
+save 文件名 变量名%保存变量为mat格式文件
+end 可作为索引，Matlab的索引是从1开始的，这个与python不同
+round 四舍五入
+max 获取向量中最大的数及他的索引;当用max函数搜索一个二维矩阵时，会按照列检索出每列最大的，并返回索引
+format long显示更长
+format bank 显示两位
+save filename.mat 保存workplace的变量到mat文件 .mat可以不写，默认
+load filename.mat 加载文件
+. * 是相同位置的数相乘，必须要有相同的数量的变量
+randn(x,y) %产生[x,y]形状的随机数矩阵
+
+xlabel('\sigma \approx \pi^{-2}')   % 希腊字母和特殊字符之前要加\ 这串代码表示σ≈pi^(-2)
+legend('Canada','USA','Location','northwest')  %this is the function to add a legend and show it in the position you want
+xyLims = axis   %show the axis limit in x&y axis
+xlim([0 2*pi])  % change the limit of x limit from 0 to 2pi
+axis tight      % the limit of axis would change rely on the limit of you data
+axis equal
+axis square
+axis normal 
+% these are some feature of the plot axis, equal is to make your x and y axis have the same intervalues, square is to make x and y limit equal, and normal is to make the figure show as normal as default
+
+自定义函数
+function output = functionname(input1, input2...)
+	output = input1.....input2
+end
+%该函数单独保存成.m文件，文件名应该与函数名相同。并且保存在工作路径下，这样就可以直接被调用。
+
+histogram直方图
+hist(a,(0:1:5))      %把a中的所有元素在0-5中统计，hist中的第二个元素给出了直方图的横轴范围和间隔
+
+for-loop遍历循环      %对相同的操作执行循环
+x= (0:1:10);
+figure
+for k=1:1:5
+	y = sin(x+k*pi/4);
+	hold on
+	plot(x,y)
+	hold off
+end
+
+imagesc   %显示多个trial的热图
+
+关于figure，如果想在同一张图上显示，需要用hold on,否则前面的figure就会被覆盖
+
+randsample(20,10,1); %randsample产生随机数的列向量，20代表在1：20之间选数字，10代表随机产生数字的数量，1代表replacable, 如果换成0代表unreplacable
+
+linspace(X1,X2,N) %这个函数把X1,X2之间拆成了N份，可以做定积分求曲线下面积
+
+trapz(X,Y,DIM) %这个函数用梯形微分的方法求Y对于X曲线下的面积

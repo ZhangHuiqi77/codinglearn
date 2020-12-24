@@ -1,0 +1,17 @@
+git config --global user.name "Your Name"
+git config --global user.email "your@email.com"
+git init
+git status
+touch index.html 
+git add .
+git add git_basic.txt
+git commit -m"add git basic operator"
+git log
+git checkout 655198466516540656165
+git checkout master
+
+git branch crazycolor
+git branch
+git checkout master
+git merge crazycolor
+git status
