@@ -8,6 +8,8 @@ git add git_basic.txt	% tell git to add git_basic.txt file
 rm deleteme.txt % delete the file in the local folder
 git rm deleteme.txt 	% tell git to rm the file
 git commit -m"add git basic operator"	
+git commit -m "Initial commit." 	% use when you first submit the files"
+
 git log
 git checkout 655198466516540656165
 git checkout master
