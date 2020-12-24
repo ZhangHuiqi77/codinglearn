@@ -1,6 +1,6 @@
 git config --global user.name "Your Name"
 git config --global user.email "your@email.com"
-git init
+git init	% every time when you go into git bash here, you need git init agian, it will Reinitialized existing Git repository in D:/Bokebi/codinglearn/.git/
 git status
 touch index.html 	% creat index.html file
 git add .		% tell git to add all
